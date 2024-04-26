@@ -3,10 +3,10 @@
 
 class Queue {
 private:
-    std::stack<int> enqueueStack;  // Stack used for enqueue operations
-    std::stack<int> dequeueStack;  // Stack used for dequeue operations
+    std::stack<int> enqueueStack;  
+    std::stack<int> dequeueStack;  
 
-    // Helper function to move elements from enqueueStack to dequeueStack
+   
     void transferStacks() {
         while (!enqueueStack.empty()) {
             dequeueStack.push(enqueueStack.top());
@@ -15,17 +15,17 @@ private:
     }
 
 public:
-    // Enqueue element x to the back of the queue
+    
     void enqueue(int x) {
         enqueueStack.push(x);
     }
 
-    // Dequeue the front element from the queue
+   
     int dequeue() {
         if (dequeueStack.empty()) {
             if (enqueueStack.empty()) {
                 std::cerr << "Queue is empty, cannot dequeue\n";
-                return -1;  // or throw an exception
+                return -1; 
             }
             transferStacks();
         }
@@ -34,19 +34,19 @@ public:
         return x;
     }
 
-    // Get the front element
+    
     int front() {
         if (dequeueStack.empty()) {
             if (enqueueStack.empty()) {
                 std::cerr << "Queue is empty\n";
-                return -1;  // or throw an exception
+                return -1;  
             }
             transferStacks();
         }
         return dequeueStack.top();
     }
 
-    // Check if the queue is empty
+    
     bool empty() {
         return enqueueStack.empty() && dequeueStack.empty();
     }
@@ -57,12 +57,12 @@ int main() {
     q.enqueue(1);
     q.enqueue(2);
     q.enqueue(3);
-    std::cout << "Dequeue: " << q.dequeue() << std::endl;  // Outputs 1
-    std::cout << "Front: " << q.front() << std::endl;  // Outputs 2
+    std::cout << "Dequeue: " << q.dequeue() << std::endl;  
+    std::cout << "Front: " << q.front() << std::endl;  
     q.enqueue(4);
-    std::cout << "Dequeue: " << q.dequeue() << std::endl;  // Outputs 2
-    std::cout << "Dequeue: " << q.dequeue() << std::endl;  // Outputs 3
-    std::cout << "Dequeue: " << q.dequeue() << std::endl;  // Outputs 4
-    std::cout << "Is queue empty? " << (q.empty() ? "Yes" : "No") << std::endl;  // Outputs Yes
+    std::cout << "Dequeue: " << q.dequeue() << std::endl;  
+    std::cout << "Dequeue: " << q.dequeue() << std::endl;  
+    std::cout << "Dequeue: " << q.dequeue() << std::endl;  
+    std::cout << "Is queue empty? " << (q.empty() ? "Yes" : "No") << std::endl;  
     return 0;
 }

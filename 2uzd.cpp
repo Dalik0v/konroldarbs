@@ -3,15 +3,15 @@
 
 class Stack {
 private:
-    std::vector<int> data; // Используем вектор для хранения элементов стека
+    std::vector<int> data; 
 
 public:
-    // Добавление элемента на вершину стека
+    
     void push(int value) {
         data.push_back(value);
     }
 
-    // Удаление элемента с вершины стека
+    
     void pop() {
         if (!data.empty()) {
             data.pop_back();
@@ -20,22 +20,21 @@ public:
         }
     }
 
-    // Получение элемента на вершине стека
     int top() {
         if (!data.empty()) {
             return data.back();
         } else {
             std::cout << "Stack is empty.\n";
-            return -1; // Возвращаем -1 или другое специфическое значение, указывающее на ошибку
+            return -1; 
         }
     }
 
-    // Проверка стека на пустоту
+
     bool isEmpty() {
         return data.empty();
     }
 
-    // Вывод содержимого стека (для демонстрации)
+ 
     void printStack() {
         std::cout << "Stack from top to bottom: ";
         for (auto it = data.rbegin(); it != data.rend(); ++it) {
@@ -50,14 +49,13 @@ int main() {
     myStack.push(10);
     myStack.push(20);
     myStack.push(30);
-    myStack.printStack(); // Вывод: 30 20 10
+    myStack.printStack(); 
 
-    std::cout << "Top element: " << myStack.top() << "\n"; // Вывод: 30
+    std::cout << "Top element: " << myStack.top() << "\n"; 
 
     myStack.pop();
-    myStack.printStack(); // Вывод: 20 10
+    myStack.printStack(); 
 
-    std::cout << "Is stack empty? " << (myStack.isEmpty() ? "Yes" : "No") << "\n"; // Вывод: No
-
+    std::cout << "Is stack empty? " << (myStack.isEmpty() ? "Yes" : "No") << "\n"; 
     return 0;
 }
